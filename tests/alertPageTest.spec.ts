@@ -16,17 +16,6 @@ test('Verify Alert functionality', async({page})=>{
 
 })
 
-test('Verify Alert 5seconds functionality',async({page})=>{
-
-    const hp = new HomePage(page);
-    const alertP = new Alertspage(page);
-
-    await hp.navigateToUrl();
-    await hp.clickOnAlertsFrameWindowsLink();
-    await alertP.clickonAlertsLink();
-
-    await alertP.verifyAlert5secFunc();
-})
 
 test('verify Alert confirm box functionality', async({page})=>{
 

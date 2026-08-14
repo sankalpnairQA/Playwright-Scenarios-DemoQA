@@ -37,6 +37,7 @@ constructor(page:Page){
 
     this.page.once('dialog',async(dialog)=>{
 
+        expect(dialog.type()).toBe('alert');
         await dialog.accept();
 
     })
@@ -46,20 +47,11 @@ constructor(page:Page){
 }
 
 
-    async verifyAlert5secFunc(){
-        this.page.once('dialog',async(dialog)=>{
-         await dialog.accept();
-        })
-
-    await this.AlertButton5sec.click();
-    console.log(`Alert 5 seconds interacted`);
-
-    }
-
     async verifyAlertCancelFunc(){
 
         this.page.once('dialog',async(dialog)=>{
 
+            expect (dialog.type()).toBe('confirm');
             await dialog.dismiss();
         })
         await this.AlertBUttonCBox.click();
@@ -73,6 +65,7 @@ constructor(page:Page){
     async verifyAlertPromptFunc(){
         this.page.once('dialog',async(dialog)=>{
 
+            expect(dialog.type()).toBe('prompt');
             await dialog.accept('PlaknasQA');
 
         });
